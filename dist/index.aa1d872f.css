@@ -1,0 +1,39 @@
+.my-flix {
+  color: steelblue;
+}
+.loginPageButton {
+  margin-right: 2%;
+}
+
+.loginButtonDiv {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.parentContainer {
+  display: flex;
+  margin-top: 80px;
+}
+.movieCardButton {
+  position: absolute;
+  bottom: 0px;
+}
+
+.movieCard {
+  margin-bottom: 10%;
+}
+
+.movieCardImg {
+  height: 15rem;
+}
+
+.parentContainer {
+  display: flex;
+  margin-top: 80px;
+}
+
+.movieCard {
+  max-width: 26rem;
+  height: 22rem;
+}
+/*# sourceMappingURL=index.aa1d872f.css.map */
