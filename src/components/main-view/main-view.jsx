@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { RegisterView } from '../register-view/register-view';
 import { LoginView } from '../login-view/login-view';
-import { MovieCard } from '../movie-card/movie-card';
+// import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { FavoritesView } from '../favorites-view/favorites-view';
@@ -43,15 +43,16 @@ export class MainView extends React.Component {
     }
   }
   
-  onLoggedIn(authData) {
-    console.log(authData);
+  onLoggedIn (authData) {
+    this.props.setUser(authData);
     this.setState({
-      user: authData.user.Username
+      user: authData.user
     });
-
+    console.log('onLoggedIn reached', authData)
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);
+  this.getMovies(authData.token);
   }
 
   getMovies(token) {
@@ -108,9 +109,12 @@ export class MainView extends React.Component {
                 <Link to={`/`}>
                   <Button variant="link" className="navbar-link text-light">Movies</Button>
                 </Link >
-                {/* <Link to={`/users/${user._id}`}>
+                <Link to={`/users/:Username`}>
                   <Button variant="link" className="navbar-link text-light">Profile</Button>
-                </Link> */}
+                  </Link>
+                  <Link to={`/users/:Username/Movies/:MovieID`}>
+                  <Button variant="link" className="navbar-link text-light">Favorite Movies</Button>
+                </Link>
                 <Link to={`/`}>
                   <Button variant="link" className="navbar-link text-light"
                     onClick={() => this.onLoggedOut()}
@@ -183,8 +187,6 @@ export class MainView extends React.Component {
                 </Col>
                 </Row>
             }} />
-
-            
         
           </Row>
         </Router>
@@ -199,4 +201,6 @@ let mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { setMovies } )(MainView);
+export default connect(mapStateToProps, { setMovies, setUser } )(MainView);
+
+

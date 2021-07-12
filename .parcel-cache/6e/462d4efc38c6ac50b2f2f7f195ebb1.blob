@@ -1,0 +1,368 @@
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "ProfileView", ()=>ProfileView
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactRedux = require("react-redux");
+var _actions = require("../../actions/actions");
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _card = require("react-bootstrap/Card");
+var _cardDefault = parcelHelpers.interopDefault(_card);
+var _col = require("react-bootstrap/Col");
+var _colDefault = parcelHelpers.interopDefault(_col);
+var _row = require("react-bootstrap/Row");
+var _rowDefault = parcelHelpers.interopDefault(_row);
+var _form = require("react-bootstrap/Form");
+var _formDefault = parcelHelpers.interopDefault(_form);
+class ProfileView extends _reactDefault.default.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            validated: null
+        };
+        console.log('Profile View Loaded');
+        this.handleUpdate = this.handleUpdate.bind(this);
+        this.deRegister = this.deRegister.bind(this);
+    }
+    handleUpdate(e, newUsername, newPassword, newEmail, newBirthday) {
+        this.setState({
+            validated: null
+        });
+        const form = e.currentTarget;
+        if (form.checkValidity() === false) {
+            e.preventDefault();
+            e.stopPropagation();
+            this.setState({
+                validated: true
+            });
+            return;
+        }
+        e.preventDefault();
+        const token = localStorage.getItem('token');
+        const user = localStorage.getItem('user');
+        const url = 'https://my-flix-oo7.herokuapp.com/users/';
+        _axiosDefault.default({
+            method: 'put',
+            url: url + user,
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+            data: {
+                Username: newUsername ? newUsername : this.state.Username,
+                Password: newPassword ? newPassword : this.state.Password,
+                Email: newEmail ? newEmail : this.state.Email,
+                Birthday: newBirthday ? newBirthday : this.state.Birthday
+            }
+        }).then((response)=>{
+            this.setState({
+                Username: response.data.Username,
+                Password: response.data.Password,
+                Email: response.data.Email,
+                Birthday: response.data.Birthday
+            });
+            alert('Changes have been saved!');
+            localStorage.setItem('user', this.state.Username);
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
+    setUsername(input) {
+        this.Username = input;
+    }
+    setPassword(input) {
+        this.Password = input;
+    }
+    setEmail(input) {
+        this.Email = input;
+    }
+    setBirthday(input) {
+        this.Birthday = input;
+    }
+    deRegister(e) {
+        e.preventDefault();
+        const token = localStorage.getItem('token');
+        const user = localStorage.getItem('user');
+        const url = 'https://my-flix-007.herokuapp.com/users/';
+        _axiosDefault.default.delete(url + user, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((result)=>{
+            localStorage.clear();
+            _actions.setUser({
+                user: null,
+                token: null
+            });
+            window.open('/', '_self');
+            alert('Your account has been deleted!');
+        }).catch(()=>{
+            console.log('error deleting the user');
+        });
+    }
+    render() {
+        const { validated  } = this.state;
+        const { onBackClick  } = this.props;
+        // const validated = null
+        // const username = localStorage.getItem('user');
+        return(/*#__PURE__*/ _reactDefault.default.createElement(Container, {
+            className: "parentContainer",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 121
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 122
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
+            className: "my-3",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 123
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Body, {
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 124
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default, {
+            noValidate: true,
+            validated: validated,
+            className: "update-form",
+            onSubmit: (e)=>this.handleUpdate(e, this.Username, this.Password, this.Email, this.Birthday)
+            ,
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 125
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
+            className: "justify-content-center",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 126
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
+            xs: 10,
+            md: 8,
+            lg: 6,
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 127
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 128
+            },
+            __self: this
+        }, "Update your Profile"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+            controlId: "BasicUsername",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 129
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 130
+            },
+            __self: this
+        }, "Username:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+            type: "text",
+            placeholder: "Enter current or new Username",
+            autoComplete: "username",
+            onChange: (e)=>this.setUsername(e.target.value)
+            ,
+            pattern: "[a-zA-Z0-9]{5,}",
+            minLength: "5",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 131
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control.Feedback, {
+            type: "invalid",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 137
+            },
+            __self: this
+        }, "Enter a Username with at least 5 alphanumeric characters")), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+            controlId: "BasicPassword",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 139
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 140
+            },
+            __self: this
+        }, "Password:*"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+            type: "password",
+            placeholder: "Enter current or new Password",
+            autoComplete: "password",
+            onChange: (e)=>this.setPassword(e.target.value)
+            ,
+            minLength: "5",
+            required: true,
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 141
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control.Feedback, {
+            type: "invalid",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 145
+            },
+            __self: this
+        }, "Enter a valid password with at least 5 characters")), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+            controlId: "BasicEmail",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 147
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 148
+            },
+            __self: this
+        }, "Email:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+            type: "email",
+            placeholder: "Change email",
+            autoComplete: "email",
+            onChange: (e)=>this.setEmail(e.target.value)
+            ,
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 149
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control.Feedback, {
+            type: "invalid",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 153
+            },
+            __self: this
+        }, "Please enter a valid email address.")), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+            controlId: "BasicBirthday",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 155
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 156
+            },
+            __self: this
+        }, "Birthday:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+            type: "date",
+            onChange: (e)=>this.setBirthday(e.target.value)
+            ,
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 157
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control.Feedback, {
+            type: "invalid",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 159
+            },
+            __self: this
+        }, "Please enter a valid date.")), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+            variant: "secondary",
+            type: "submit",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 161
+            },
+            __self: this
+        }, "Update"), /*#__PURE__*/ _reactDefault.default.createElement("hr", {
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 161
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+            variant: "secondary",
+            className: "my-2",
+            onClick: ()=>{
+                onBackClick(null);
+            },
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 162
+            },
+            __self: this
+        }, "Back"), /*#__PURE__*/ _reactDefault.default.createElement("p", {
+            className: "my-3",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 163
+            },
+            __self: this
+        }, "Deregister Account: - Cannot be undone!"), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+            variant: "danger",
+            onClick: (e)=>this.deRegister(e)
+            ,
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 164
+            },
+            __self: this
+        }, "Deregister")))))))));
+    }
+}
+_propTypesDefault.default.checkPropTypes(ProfileView.propTypes);
+ProfileView.propTypes = {
+    user: _propTypesDefault.default.object.isRequired,
+    onBackClick: _propTypesDefault.default.func.isRequired
+};
+let mapStateToProps = (state)=>{
+    return {
+        user: state.user,
+        movies: state.movies
+    };
+};
+exports.default = _reactRedux.connect(mapStateToProps, {
+    setUser: _actions.setUser,
+    updateUser: _actions.updateUser
+})(ProfileView);
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

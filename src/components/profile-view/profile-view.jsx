@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import Container from 'react-bootstrap/Container';
 import { connect } from 'react-redux';
 import { setUser } from '../../actions/actions';
 import { updateUser } from '../../actions/actions';
@@ -117,7 +118,8 @@ export class ProfileView extends React.Component {
     // const username = localStorage.getItem('user');
     
 
-  return (
+    return (
+    <Container className="parentContainer">
     <div>
       <Card className="my-3">
         <Card.Body>
@@ -136,7 +138,7 @@ export class ProfileView extends React.Component {
                   <Form.Control.Feedback type='invalid'>Enter a Username with at least 5 alphanumeric characters</Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group controlId="BasicPassword">
-                  <Form.Label>Password:*</Form.Label>
+                  <Form.Label>Password:</Form.Label>
                   <Form.Control type="password"
                   placeholder="Enter current or new Password"
                   autoComplete="password"
@@ -166,7 +168,8 @@ export class ProfileView extends React.Component {
           </Form>
         </Card.Body>
       </Card>
-    </div>
+        </div>
+         </Container>
   )}
 }
 
