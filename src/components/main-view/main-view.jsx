@@ -8,12 +8,15 @@ import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { Container, Navbar } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 import { ProfileView } from '../profile-view/profile-view';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
+import { setMovies } from '../../actions/actions';
+import MoviesList from '../movies-list/movies-list';
 
 
 
@@ -54,11 +57,7 @@ export class MainView extends React.Component {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
-        // Assign the result to the state
-        this.setState({
-          movies: response.data
-        });
-        console.log(response)
+        this.props.setMovies(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -91,7 +90,8 @@ export class MainView extends React.Component {
 
 
   render() {
-      const { movies, user } = this.state;
+      let { movies } = this.props;
+      let { user } = this.state;
       return (
       <Router>
         <Row className="main-view justify-content-md-center">
@@ -118,11 +118,11 @@ export class MainView extends React.Component {
                 <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
               </Col>
               if (movies.length === 0) return <div className="main-view" />;
-              return movies.map(m => (
-                <Col md={4} key={m._id}>
-                  <MovieCard movie={m} />
-                </Col>
-              ))
+              // return movies.map(m => (
+              //   <Col md={4} key={m._id}>
+              //     <MovieCard movie={m} />
+              //   </Col>
+              return <MoviesList movies={movies}/>;
             }} />
             <Route path="/register" render={() => {
               if (user) return <Redirect to="/" />
@@ -180,4 +180,8 @@ export class MainView extends React.Component {
     }
 }
   
-export default MainView;
+let mapStateToProps = state => {
+  return { movies: state.movies }
+}
+
+export default connect(mapStateToProps, { setMovies } )(MainView);

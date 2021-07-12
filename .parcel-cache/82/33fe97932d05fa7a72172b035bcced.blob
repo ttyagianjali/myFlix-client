@@ -1,0 +1,22 @@
+.movieCardButton {
+  position: absolute;
+  bottom: 0px;
+}
+
+.movieCard {
+  margin-bottom: 10%;
+}
+
+.movieCardImg {
+  height: 15rem;
+}
+
+.parentContainer {
+  display: flex;
+  margin-top: 80px;
+}
+
+.movieCard {
+  max-width: 26rem;
+  height: 22rem;
+}
