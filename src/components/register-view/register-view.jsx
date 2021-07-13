@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export function RegisterView(props) {
   const [username, setUsername] = useState('');
@@ -56,7 +57,9 @@ axios.post('https://my-flix-007.herokuapp.com/users', {
      <Button variant="primary" type="submit" onClick={handleRegister}>
        Submit
       </Button>
-    <Button variant="primary" type="submit" onClick={() => { onBackClick(null); }}>Back</Button> 
+   <Link to={`/`}>
+            <Button variant="primary" type="submit" >Back</Button>
+    </Link>
       </Form>
       </Container>
   );

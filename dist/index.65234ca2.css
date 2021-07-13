@@ -1,8 +1,8 @@
-.loginPageButton {
+.button {
   margin-right: 2%;
 }
 
-.loginButtonDiv {
+.buttonDiv {
   display: flex;
   justify-content: space-evenly;
 }

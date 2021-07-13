@@ -1,0 +1,145 @@
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+// import "./director-view.scss"
+parcelHelpers.export(exports, "DirectorView", ()=>DirectorView
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _reactBootstrap = require("react-bootstrap");
+class DirectorView extends _reactDefault.default.Component {
+    render() {
+        const { director , onBackClick  } = this.props;
+        return(/*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Container, {
+            className: "parentContainer",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/director-view/director-view.jsx",
+                lineNumber: 14
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "director-view",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/director-view/director-view.jsx",
+                lineNumber: 15
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "my-2",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/director-view/director-view.jsx",
+                lineNumber: 16
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "label font-weight-bold",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/director-view/director-view.jsx",
+                lineNumber: 17
+            },
+            __self: this
+        }, "Director: "), /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "value",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/director-view/director-view.jsx",
+                lineNumber: 18
+            },
+            __self: this
+        }, director.Name)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "my-2",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/director-view/director-view.jsx",
+                lineNumber: 20
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "label font-weight-bold",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/director-view/director-view.jsx",
+                lineNumber: 21
+            },
+            __self: this
+        }, "Biography: "), /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "value",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/director-view/director-view.jsx",
+                lineNumber: 22
+            },
+            __self: this
+        }, director.Bio)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "my-2",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/director-view/director-view.jsx",
+                lineNumber: 24
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "label font-weight-bold",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/director-view/director-view.jsx",
+                lineNumber: 25
+            },
+            __self: this
+        }, "Born: "), /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "value",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/director-view/director-view.jsx",
+                lineNumber: 26
+            },
+            __self: this
+        }, director.Born)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "my-2",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/director-view/director-view.jsx",
+                lineNumber: 28
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "label font-weight-bold",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/director-view/director-view.jsx",
+                lineNumber: 29
+            },
+            __self: this
+        }, "Death: "), /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "value",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/director-view/director-view.jsx",
+                lineNumber: 30
+            },
+            __self: this
+        }, director.Death)), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+            variant: "primary",
+            onClick: ()=>onBackClick()
+            ,
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/director-view/director-view.jsx",
+                lineNumber: 32
+            },
+            __self: this
+        }, "Back"))));
+    }
+}
+DirectorView.propTypes = {
+    director: _propTypesDefault.default.shape({
+        Name: _propTypesDefault.default.string.isRequired,
+        Bio: _propTypesDefault.default.string,
+        Born: _propTypesDefault.default.string.isRequired,
+        Death: _propTypesDefault.default.string
+    }).isRequired
+};
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

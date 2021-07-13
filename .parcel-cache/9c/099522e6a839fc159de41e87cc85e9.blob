@@ -1,0 +1,144 @@
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "FavoritesView", ()=>FavoritesView
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactRedux = require("react-redux");
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _card = require("react-bootstrap/Card");
+var _cardDefault = parcelHelpers.interopDefault(_card);
+var _reactBootstrap = require("react-bootstrap");
+class FavoritesView extends _reactDefault.default.Component {
+    constructor(props){
+        super(props);
+        console.log('FavoritesView Loaded');
+        this.removeFavorite = this.removeFavorite.bind(this);
+    }
+    removeFavorite(movie) {
+        const token = localStorage.getItem("token");
+        const url = 'https://my-flix-007.herokuapp.com/users/';
+        const user = localStorage.getItem("user");
+        _axiosDefault.default.delete(url + user + "/movies/" + movie._id, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            console.log(response);
+            alert("Removed from favorites");
+            this.componentDidMount();
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
+    render() {
+        const FavoriteMovies = this.props.user.FavoriteMovies;
+        const { movies  } = this.props;
+        console.log('FavMovies render', FavoriteMovies);
+        return(/*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Container, {
+            className: "parentContainer",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/favorites-view/favorites-view.jsx",
+                lineNumber: 42
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
+            className: "profile-card p-3 mt-2",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/favorites-view/favorites-view.jsx",
+                lineNumber: 43
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Title, {
+            className: "profile-title",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/favorites-view/favorites-view.jsx",
+                lineNumber: 44
+            },
+            __self: this
+        }, this.props.user.Username, "'s Favorite Movies"), FavoriteMovies.length === 0 && /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "card-content",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/favorites-view/favorites-view.jsx",
+                lineNumber: 45
+            },
+            __self: this
+        }, "You don't have any favorite movies yet!"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "favorites-container",
+            __source: {
+                fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/favorites-view/favorites-view.jsx",
+                lineNumber: 46
+            },
+            __self: this
+        }, FavoriteMovies.length > 0 && movies.map((movie)=>{
+            if (movie._id === FavoriteMovies.find((favMovie)=>favMovie === movie._id
+            )) return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+                key: movie._id,
+                __source: {
+                    fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/favorites-view/favorites-view.jsx",
+                    lineNumber: 50
+                },
+                __self: this
+            }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
+                style: {
+                    width: '15rem',
+                    float: 'left'
+                },
+                className: "d-inline-flex align-content-start m-1",
+                __source: {
+                    fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/favorites-view/favorites-view.jsx",
+                    lineNumber: 51
+                },
+                __self: this
+            }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
+                className: "favorites-movie p-2",
+                variant: "top",
+                src: movie.Image_link,
+                __source: {
+                    fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/favorites-view/favorites-view.jsx",
+                    lineNumber: 52
+                },
+                __self: this
+            }), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Body, {
+                className: "movie-card-body",
+                __source: {
+                    fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/favorites-view/favorites-view.jsx",
+                    lineNumber: 53
+                },
+                __self: this
+            }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+                className: "remove-favorite",
+                variant: "danger",
+                onClick: ()=>this.removeFavorite(movie)
+                ,
+                __source: {
+                    fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/favorites-view/favorites-view.jsx",
+                    lineNumber: 54
+                },
+                __self: this
+            }, " Remove")))));
+        })))));
+    }
+}
+let mapStateToProps = (state)=>{
+    return {
+        user: state.user,
+        movies: state.movies
+    };
+};
+exports.default = _reactRedux.connect(mapStateToProps)(FavoritesView);
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

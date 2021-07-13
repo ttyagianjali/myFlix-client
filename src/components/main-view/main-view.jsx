@@ -112,9 +112,6 @@ export class MainView extends React.Component {
                 <Link to={`/users/:Username`}>
                   <Button variant="link" className="navbar-link text-light">Profile</Button>
                   </Link>
-                  <Link to={`/users/:Username/Movies/:MovieID`}>
-                  <Button variant="link" className="navbar-link text-light">Favorite Movies</Button>
-                </Link>
                 <Link to={`/`}>
                   <Button variant="link" className="navbar-link text-light"
                     onClick={() => this.onLoggedOut()}

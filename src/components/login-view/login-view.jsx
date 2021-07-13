@@ -38,13 +38,13 @@ const handleSubmit = (e) => {
         <Form.Label>Password:</Form.Label>
         <Form.Control type="password" placeholder="Enter Password" onChange={e => setPassword(e.target.value)} />
       </Form.Group>
-      <div className="loginButtonDiv">
-      <Button className="loginPageButton" variant="primary" type="submit" onClick={handleSubmit}>
+      <div className="buttonDiv">
+      <Button className="button" variant="primary" type="submit" onClick={handleSubmit}>
        Submit
       </Button>
      
         <Link to={`/register`}>
-            <Button variant="link" >Register</Button>
+            <Button className="button" variant="primary" type="submit" >Register</Button>
           </Link>
         </div>
       </Form>

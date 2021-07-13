@@ -1,0 +1,184 @@
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "RegisterView", ()=>RegisterView
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _form = require("react-bootstrap/Form");
+var _formDefault = parcelHelpers.interopDefault(_form);
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactBootstrap = require("react-bootstrap");
+var _s = $RefreshSig$();
+function RegisterView(props) {
+    _s();
+    const [username, setUsername] = _react.useState('');
+    const [password, setPassword] = _react.useState('');
+    const [email, setEmail] = _react.useState('');
+    const [birthday, setBirthday] = _react.useState('');
+    const handleRegister = (e)=>{
+        e.preventDefault();
+        // registration-view.jsx
+        _axiosDefault.default.post('https://my-flix-007.herokuapp.com/users', {
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthday: birthday
+        }).then((response)=>{
+            const data = response.data;
+            console.log(data);
+            window.open('/', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab
+        }).catch((e1)=>{
+            console.log('error registering the user');
+        });
+    };
+    return(/*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Container, {
+        className: "parentContainer",
+        __source: {
+            fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/register-view/register-view.jsx",
+            lineNumber: 34
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default, {
+        __source: {
+            fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/register-view/register-view.jsx",
+            lineNumber: 35
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+        controlId: "formUsername",
+        __source: {
+            fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/register-view/register-view.jsx",
+            lineNumber: 36
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+        __source: {
+            fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/register-view/register-view.jsx",
+            lineNumber: 37
+        },
+        __self: this
+    }, "Username:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+        type: "text",
+        placeholder: "Enter Username",
+        onChange: (e)=>setUsername(e.target.value)
+        ,
+        __source: {
+            fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/register-view/register-view.jsx",
+            lineNumber: 38
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+        controlId: "formPassword",
+        __source: {
+            fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/register-view/register-view.jsx",
+            lineNumber: 41
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+        __source: {
+            fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/register-view/register-view.jsx",
+            lineNumber: 42
+        },
+        __self: this
+    }, "Password:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+        type: "password",
+        placeholder: "Password",
+        onChange: (e)=>setPassword(e.target.value)
+        ,
+        __source: {
+            fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/register-view/register-view.jsx",
+            lineNumber: 43
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+        controlId: "formEmail",
+        __source: {
+            fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/register-view/register-view.jsx",
+            lineNumber: 46
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+        __source: {
+            fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/register-view/register-view.jsx",
+            lineNumber: 47
+        },
+        __self: this
+    }, "Email:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+        type: "email",
+        placeholder: "Enter Email",
+        onChange: (e)=>setEmail(e.target.value)
+        ,
+        __source: {
+            fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/register-view/register-view.jsx",
+            lineNumber: 48
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+        controlId: "formBirthday",
+        __source: {
+            fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/register-view/register-view.jsx",
+            lineNumber: 51
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+        __source: {
+            fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/register-view/register-view.jsx",
+            lineNumber: 52
+        },
+        __self: this
+    }, "Birthday:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+        type: "date",
+        onChange: (e)=>setBirthday(e.target.value)
+        ,
+        __source: {
+            fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/register-view/register-view.jsx",
+            lineNumber: 53
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+        variant: "primary",
+        type: "submit",
+        onClick: handleRegister,
+        __source: {
+            fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/register-view/register-view.jsx",
+            lineNumber: 56
+        },
+        __self: this
+    }, "Submit"), /*#__PURE__*/ _reactDefault.default.createElement(Link, {
+        to: `/register`,
+        __source: {
+            fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/register-view/register-view.jsx",
+            lineNumber: 59
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+        className: "movieCardButton",
+        variant: "link",
+        __source: {
+            fileName: "/Users/anjalityagi/myProjects/myFlix-client/src/components/register-view/register-view.jsx",
+            lineNumber: 60
+        },
+        __self: this
+    }, "Open")))));
+}
+_s(RegisterView, "tdA1KK8yaZidqYo0wscqshHt/KE=");
+_c = RegisterView;
+var _c;
+$RefreshReg$(_c, "RegisterView");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

@@ -1,0 +1,13 @@
+.button {
+  margin-right: 2%;
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.parentContainer {
+  display: flex;
+  margin-top: 80px;
+}

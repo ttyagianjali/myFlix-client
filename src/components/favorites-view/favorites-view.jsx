@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Container } from 'react-bootstrap';
 
 
 export class FavoritesView extends React.Component {
@@ -37,8 +38,8 @@ export class FavoritesView extends React.Component {
     console.log('FavMovies render', FavoriteMovies);
     
 
-  return (
-    <div>
+    return (
+    <Container className="parentContainer">
       <Card className='profile-card p-3 mt-2'>
         <Card.Title className='profile-title'>{this.props.user.Username}'s Favorite Movies</Card.Title>
           {FavoriteMovies.length === 0 && <div className='card-content'>You don't have any favorite movies yet!</div>}
@@ -48,7 +49,7 @@ export class FavoritesView extends React.Component {
                   return (
                     <div key={movie._id}>
                         <Card style={{ width: '15rem', float: 'left' }} className='d-inline-flex align-content-start m-1'>
-                            <Card.Img className='favorites-movie p-2' variant="top" src={movie.ImagePath} />
+                            <Card.Img className='favorites-movie p-2' variant="top" src={movie.Image_link} />
                             <Card.Body className='movie-card-body'>
                               <Button className='remove-favorite' variant='danger' 
                                 onClick={() => this.removeFavorite(movie)}> Remove
@@ -61,7 +62,7 @@ export class FavoritesView extends React.Component {
                 })}
           </div>
       </Card>
-    </div>
+        </Container>
   )}
 }
 
