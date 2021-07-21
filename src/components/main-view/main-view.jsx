@@ -97,7 +97,8 @@ export class MainView extends React.Component {
 
 
   render() {
-      let { movies } = this.props;
+    let { movies } = this.props;
+    // const { user } = this.props;
       let { user } = this.state;
       return (
       <Router>
@@ -109,7 +110,7 @@ export class MainView extends React.Component {
                 <Link to={`/`}>
                   <Button variant="link" className="navbar-link text-light">Movies</Button>
                 </Link >
-                <Link to={`/users/:Username`}>
+                <Link to={`/users/${user}`}>
                   <Button variant="link" className="navbar-link text-light">Profile</Button>
                   </Link>
                 <Link to={`/`}>
@@ -174,7 +175,7 @@ export class MainView extends React.Component {
               </Col>
               if (movies.length === 0) return <div className="main-view" />;
               return <Row><Col md={8}>
-                <ProfileView 
+                <ProfileView onLoggedIn={user => this.onLoggedIn(user)}
                       user={user}
                       onBackClick={() => history.goBack()} />
               </Col>

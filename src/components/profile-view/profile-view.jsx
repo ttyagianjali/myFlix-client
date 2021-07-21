@@ -46,9 +46,7 @@ export class ProfileView extends React.Component {
     const user = localStorage.getItem('user');
     const url = 'https://my-flix-oo7.herokuapp.com/users/';
 
-    axios({
-      method: 'put',
-      url: url + user,
+    axios.put(url + user,{
       headers: { Authorization: `Bearer ${token}` },
       data: {
         Username: newUsername ? newUsername : this.state.Username,
@@ -173,11 +171,11 @@ export class ProfileView extends React.Component {
   )}
 }
 
-PropTypes.checkPropTypes(ProfileView.propTypes);
-ProfileView.propTypes = {
-  user: PropTypes.object.isRequired,
-  onBackClick: PropTypes.func.isRequired
-}
+// PropTypes.checkPropTypes(ProfileView.propTypes);
+// ProfileView.propTypes = {
+//   user: PropTypes.object.isRequired,
+//   onBackClick: PropTypes.func.isRequired
+// }
 
 let mapStateToProps = state => {
   return {
@@ -187,3 +185,5 @@ let mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { setUser, updateUser })(ProfileView);
+
+

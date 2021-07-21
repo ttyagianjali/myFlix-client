@@ -52,7 +52,7 @@ export class MovieView extends React.Component {
         <Link to={`/genres/${movie.Genre.Name}`}>
   <Button className="button" variant="primary">Genre</Button>
           </Link>
-          <Button className="button" variant='primary'
+          <Button className="button" variant='primary' 
             onClick={() => { this.addFavorite(movie);}}> Add to Favorites
   </Button>
           

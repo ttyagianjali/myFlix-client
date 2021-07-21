@@ -20,20 +20,40 @@ export class FavoritesView extends React.Component {
     const user = localStorage.getItem("user");
     
     axios.delete(url + user + "/movies/" + movie._id, {
+      
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
         console.log(response);
         alert("Removed from favorites");
-        this.componentDidMount();
+        // this.componentDidMount();
       })
       .catch(function (error) {
         console.log(error);
       });
   }
 
+  getUser(token) {
+    const user = localStorage.getItem("user")
+    axios
+      .get('https://my-flix-007.herokuapp.com/users/' + user, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        this.props.setUser(response.data)
+        this.setState({
+          user: response.data
+        });
+        console.log('getUser response', response.data)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      console.log('getUser reached')
+  }
+
   render() {
-    const FavoriteMovies = this.props.user.FavoriteMovies;
+    const FavoriteMovies = this.props.user.FavoriteMovies||[];
     const { movies } = this.props;
     console.log('FavMovies render', FavoriteMovies);
     
