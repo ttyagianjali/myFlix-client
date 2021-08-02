@@ -53,13 +53,14 @@ axios.post('https://my-flix-007.herokuapp.com/users', {
         <Form.Label>Birthday:</Form.Label>
         <Form.Control type="date" onChange={e => setBirthday(e.target.value)} />
     </Form.Group>
-    
-     <Button variant="primary" type="submit" onClick={handleRegister}>
+    <div className="buttonDiv">
+     <Button variant="primary" type="submit" className="button" onClick={handleRegister}>
        Submit
       </Button>
    <Link to={`/`}>
-            <Button variant="primary" type="submit" >Back</Button>
-    </Link>
+            <Button variant="primary" className="button" type="submit" >Back</Button>
+        </Link>
+       </div>
       </Form>
       </Container>
   );

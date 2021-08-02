@@ -11,6 +11,11 @@
   display: flex;
   margin-top: 80px;
 }
+.parentContainer {
+  display: flex;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
 .movieCardButton {
   position: absolute;
   bottom: 0px;
