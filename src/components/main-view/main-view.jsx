@@ -5,7 +5,6 @@ import { LoginView } from '../login-view/login-view';
 // import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
-import { FavoritesView } from '../favorites-view/favorites-view';
 import { GenreView } from '../genre-view/genre-view';
 import { Container, Navbar } from 'react-bootstrap';
 import { Link } from "react-router-dom";
