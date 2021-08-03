@@ -54150,92 +54150,7 @@ DirectorView.propTypes = {
     Death: _propTypes.default.string
   }).isRequired
 };
-},{"react":"../node_modules/react/index.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","prop-types":"../node_modules/prop-types/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js"}],"components/favorites-view/favorites-view.jsx":[function(require,module,exports) {
-// import React from 'react';
-// import axios from 'axios';
-// import { connect } from 'react-redux';
-// import Button from 'react-bootstrap/Button';
-// import Card from 'react-bootstrap/Card';
-// import { Container } from 'react-bootstrap';
-// export class FavoritesView extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     console.log('FavoritesView Loaded')
-//     this.removeFavorite = this.removeFavorite.bind(this);
-//   }
-//   removeFavorite(movie) {
-//     const token = localStorage.getItem("token");
-//     const url = 'https://my-flix-007.herokuapp.com/users/';
-//     const user = localStorage.getItem("user");
-//     axios.delete(url + user + "/movies/" + movie._id, {
-//         headers: { Authorization: `Bearer ${token}` },
-//       })
-//       .then((response) => {
-//         console.log(response);
-//         alert("Removed from favorites");
-//         // this.componentDidMount();
-//       })
-//       .catch(function (error) {
-//         console.log(error);
-//       });
-//   }
-//   getUser(token) {
-//     const user = localStorage.getItem("user")
-//     axios
-//       .get('https://my-flix-007.herokuapp.com/users/' + user, {
-//         headers: { Authorization: `Bearer ${token}` },
-//       })
-//       .then((response) => {
-//         this.props.setUser(response.data)
-//         this.setState({
-//           user: response.data
-//         });
-//         console.log('getUser response', response.data)
-//       })
-//       .catch(function (error) {
-//         console.log(error);
-//       });
-//       console.log('getUser reached')
-//   }
-//   render() {
-//     const FavoriteMovies = this.props.user.FavoriteMovies||[];
-//     const { movies } = this.props;
-//     console.log('FavMovies render', FavoriteMovies);
-//     return (
-//     <Container className="parentContainer">
-//       <Card className='profile-card p-3 mt-2'>
-//         <Card.Title className='profile-title'>{this.props.user.Username}'s Favorite Movies</Card.Title>
-//           {FavoriteMovies.length === 0 && <div className='card-content'>You don't have any favorite movies yet!</div>}
-//           <div className='favorites-container'>
-//               {FavoriteMovies.length > 0 && movies.map((movie) => {
-//                 if (movie._id === FavoriteMovies.find((favMovie) => favMovie === movie._id)) {
-//                   return (
-//                     <div key={movie._id}>
-//                         <Card style={{ width: '15rem', float: 'left' }} className='d-inline-flex align-content-start m-1'>
-//                             <Card.Img className='favorites-movie p-2' variant="top" src={movie.Image_link} />
-//                             <Card.Body className='movie-card-body'>
-//                               <Button className='remove-favorite' variant='danger' 
-//                                 onClick={() => this.removeFavorite(movie)}> Remove
-//                               </Button>
-//                             </Card.Body>
-//                           </Card>
-//                     </div>
-//                     );
-//                   }
-//                 })}
-//           </div>
-//       </Card>
-//         </Container>
-//   )}
-// }
-// let mapStateToProps = state => {
-//   return {
-//     user: state.user,
-//     movies: state.movies
-//   }
-// }
-// export default connect(mapStateToProps)(FavoritesView);
-},{}],"components/genre-view/genre-view.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","prop-types":"../node_modules/prop-types/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js"}],"components/genre-view/genre-view.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -54861,8 +54776,6 @@ var _movieView = require("../movie-view/movie-view");
 
 var _directorView = require("../director-view/director-view");
 
-var _favoritesView = require("../favorites-view/favorites-view");
-
 var _genreView = require("../genre-view/genre-view");
 
 var _reactBootstrap = require("react-bootstrap");
@@ -55181,7 +55094,7 @@ var _default = (0, _reactRedux.connect)(mapStateToProps, {
 })(MainView);
 
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","../register-view/register-view":"components/register-view/register-view.jsx","../login-view/login-view":"components/login-view/login-view.jsx","../movie-view/movie-view":"components/movie-view/movie-view.jsx","../director-view/director-view":"components/director-view/director-view.jsx","../favorites-view/favorites-view":"components/favorites-view/favorites-view.jsx","../genre-view/genre-view":"components/genre-view/genre-view.jsx","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-redux":"../node_modules/react-redux/es/index.js","../profile-view/profile-view":"components/profile-view/profile-view.jsx","react-bootstrap/Row":"../node_modules/react-bootstrap/esm/Row.js","react-bootstrap/Col":"../node_modules/react-bootstrap/esm/Col.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","../../actions/actions":"actions/actions.js","../movies-list/movies-list":"components/movies-list/movies-list.jsx"}],"index.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","../register-view/register-view":"components/register-view/register-view.jsx","../login-view/login-view":"components/login-view/login-view.jsx","../movie-view/movie-view":"components/movie-view/movie-view.jsx","../director-view/director-view":"components/director-view/director-view.jsx","../genre-view/genre-view":"components/genre-view/genre-view.jsx","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-redux":"../node_modules/react-redux/es/index.js","../profile-view/profile-view":"components/profile-view/profile-view.jsx","react-bootstrap/Row":"../node_modules/react-bootstrap/esm/Row.js","react-bootstrap/Col":"../node_modules/react-bootstrap/esm/Col.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","../../actions/actions":"actions/actions.js","../movies-list/movies-list":"components/movies-list/movies-list.jsx"}],"index.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -55288,7 +55201,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62238" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49477" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
