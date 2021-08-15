@@ -1,4 +1,8 @@
-# myFlix-cliet
+# myFlix-client
+
+## Browser Demo
+![MyFlix Browser Demo!](./src/assets/myFlix-api.gif)
+
 
 ## Table of Contents
 - [Objective](#Objective)
