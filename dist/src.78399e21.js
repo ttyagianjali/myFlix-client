@@ -54358,7 +54358,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
         }
       }).then(function (response) {
         console.log(response);
-        alert("Removed from favorites"); // this.componentDidMount();
+        window.open("/users/".concat(user), '_self');
       }).catch(function (error) {
         console.log(error);
       });
@@ -55201,7 +55201,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51055" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55883" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
