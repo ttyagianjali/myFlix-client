@@ -34,7 +34,7 @@ The objective of this project was to build a Single Page Application application
 ## Technical-Specks
 - Application is a Single Page Application (SPA)
 - Application uses state router to navigate between views.
-- Application uses parcel ass its build tool.
+- Application uses parcel as its build tool.
 - Application was writtern using the React librarby
 - Application uses Redux for state management following flux pattern.
 - Application was styled with bootstrap and react-bootstrap.
