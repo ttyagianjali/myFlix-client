@@ -92,6 +92,7 @@ export class MainView extends React.Component {
     this.setState({
       user: null
     });
+    alert('Are you sure you want to logout?')
   }
 
 

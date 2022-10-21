@@ -55,8 +55,8 @@ export class ProfileView extends React.Component {
     
     axios.delete(url + user + "/movies/" + movie._id, {
       
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      headers: { Authorization: `Bearer ${token}` }
+      }, alert('Remove from Favorites?'))
       .then((response) => {
         console.log(response);
         
@@ -139,6 +139,7 @@ export class ProfileView extends React.Component {
       .then(() => {
         localStorage.removeItem('user');
         localStorage.removeItem('token');
+        alert('Are you sure you want to Permsnently delete your account?')
         alert('Your account has been deleted.');
         window.open(`/`, '_self');
       })
@@ -157,7 +158,7 @@ export class ProfileView extends React.Component {
         <Card className="profile-card">
           <h2>Your Favorites Movies</h2>
           <Card.Body>
-            {FavoriteMovies.length === 0 && <div className="text-center">Empty.</div>}
+            {FavoriteMovies.length === 0 && <div className="text-center">You haven't added anything yet.</div>}
 
             <div className="favorites-movies ">
               {FavoriteMovies.length > 0 &&

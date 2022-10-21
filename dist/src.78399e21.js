@@ -53669,7 +53669,8 @@ function RegisterView(props) {
     }).then(function (response) {
       var data = response.data;
       console.log(data);
-      window.open('/', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab
+      window.open('/', '_self');
+      alert('User has been created!'); // the second argument '_self' is necessary so that the page will open in the current tab
     }).catch(function (e) {
       console.log('error registering the user');
     });
@@ -54356,7 +54357,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
         headers: {
           Authorization: "Bearer ".concat(token)
         }
-      }).then(function (response) {
+      }, alert('Remove from Favorites?')).then(function (response) {
         console.log(response);
         window.open("/users/".concat(user), '_self');
       }).catch(function (error) {
@@ -54446,6 +54447,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
       }).then(function () {
         localStorage.removeItem('user');
         localStorage.removeItem('token');
+        alert('Are you sure you want to Permsnently delete your account?');
         alert('Your account has been deleted.');
         window.open("/", '_self');
       }).catch(function (e) {
@@ -54469,7 +54471,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
         className: "profile-card"
       }, /*#__PURE__*/_react.default.createElement("h2", null, "Your Favorites Movies"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Card.Body, null, FavoriteMovies.length === 0 && /*#__PURE__*/_react.default.createElement("div", {
         className: "text-center"
-      }, "Empty."), /*#__PURE__*/_react.default.createElement("div", {
+      }, "You haven't added anything yet."), /*#__PURE__*/_react.default.createElement("div", {
         className: "favorites-movies "
       }, FavoriteMovies.length > 0 && movies.map(function (movie) {
         if (movie._id === FavoriteMovies.find(function (favMovie) {
@@ -54912,6 +54914,7 @@ var MainView = /*#__PURE__*/function (_React$Component) {
       this.setState({
         user: null
       });
+      alert('Are you sure you want to logout?');
     }
   }, {
     key: "render",
@@ -55201,7 +55204,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55883" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53964" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
