@@ -86,7 +86,8 @@ export class ProfileView extends React.Component {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
 
-    axios.put(`https://my-flix-007.herokuapp.com/users/${username}`, {
+    axios.put(`https://my-flix-007.herokuapp.com/users/${username}`,
+      {
       headers: { Authorization: `Bearer ${token}` },
       data: {
         Username: newUsername ? newUsername : this.state.Username,

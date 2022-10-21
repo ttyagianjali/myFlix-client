@@ -35,6 +35,7 @@ export function UpdateView (props) {
       })
       .catch(e => {
         console.log('error updating the user');
+        alert('Unable to update user')
       });
   };
 
