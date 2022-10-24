@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { Button, Card, Form, Row, Container } from 'react-bootstrap';
 import './profile-view.scss';
 
+
+
 export class ProfileView extends React.Component {
   constructor(props) {
     super(props);
@@ -217,13 +219,13 @@ export class ProfileView extends React.Component {
                   Delete Account
                 </Button>
               </Card.Body>
-            </Form>
+             </Form>
 
           </Card.Body>
         </Card>
         </Row >
         </Container>
-    );
+    ); 
   }
 }
 

@@ -53607,8 +53607,6 @@ exports.RegisterView = RegisterView;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
 var _Form = _interopRequireDefault(require("react-bootstrap/Form"));
 
 var _Button = _interopRequireDefault(require("react-bootstrap/Button"));
@@ -53724,7 +53722,7 @@ function RegisterView(props) {
     type: "submit"
   }, "Back")))));
 }
-},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-bootstrap/Form":"../node_modules/react-bootstrap/esm/Form.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","axios":"../node_modules/axios/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"../../../.nvm/versions/node/v14.17.3/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-bootstrap/Form":"../node_modules/react-bootstrap/esm/Form.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","axios":"../node_modules/axios/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"../../../.nvm/versions/node/v14.17.3/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -54600,8 +54598,7 @@ function visibilityFilterInput(props) {
     onChange: function onChange(e) {
       return props.setFilter(e.target.value);
     },
-    value: props.visibilityFilter,
-    placeholder: "Search for a movie"
+    value: props.visibilityFilter
   });
 }
 
@@ -54624,8 +54621,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.MovieCard = void 0;
 
 var _react = _interopRequireDefault(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _Button = _interopRequireDefault(require("react-bootstrap/Button"));
 
@@ -54697,7 +54692,7 @@ var MovieCard = /*#__PURE__*/function (_React$Component) {
 }(_react.default.Component);
 
 exports.MovieCard = MovieCard;
-},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","react-bootstrap/Card":"../node_modules/react-bootstrap/esm/Card.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./movie-card.scss":"components/movie-card/movie-card.scss","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js"}],"components/movies-list/movies-list.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","react-bootstrap/Card":"../node_modules/react-bootstrap/esm/Card.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./movie-card.scss":"components/movie-card/movie-card.scss","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js"}],"components/movies-list/movies-list.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -54863,7 +54858,6 @@ var MainView = /*#__PURE__*/function (_React$Component) {
       console.log('onLoggedIn reached', authData);
       localStorage.setItem('token', authData.token);
       localStorage.setItem('user', authData.user.Username);
-      this.getMovies(authData.token);
       this.getMovies(authData.token);
     }
   }, {
@@ -55204,7 +55198,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56564" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64632" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
